@@ -1,24 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ramadan Blessing Gate 🌙</title>
+<title>Ramadan Celebration 🌙</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-/* ===============================
-   GLOBAL RESET
-=================================*/
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-/* ===============================
-   BODY BASE
-=================================*/
 body{
     font-family:'Segoe UI',sans-serif;
     background:#050816;
@@ -26,12 +15,9 @@ body{
     text-align:center;
     overflow-x:hidden;
     position:relative;
-    min-height:100vh;
 }
 
-/* ===============================
-   ULTRA COSMIC RAMADAN AURA
-=================================*/
+/* POWERFUL COSMIC AURA */
 body::before{
     content:"";
     position:fixed;
@@ -47,9 +33,9 @@ body::before{
         #0044ff,
         #00f0ff
     );
-    animation:rotateAura 8s linear infinite, pulseAura 3s ease-in-out infinite alternate;
-    filter:blur(170px) brightness(1.8);
-    opacity:0.95;
+    animation:rotateAura 8s linear infinite;
+    filter:blur(180px) brightness(2);
+    opacity:0.9;
     z-index:-2;
 }
 
@@ -58,26 +44,28 @@ body::before{
     to{transform:rotate(360deg);}
 }
 
-@keyframes pulseAura{
-    from{filter:blur(150px) brightness(1.5);}
-    to{filter:blur(200px) brightness(2.2);}
-}
-
-/* DARK GLASS OVERLAY */
+/* DARK OVERLAY */
 body::after{
     content:"";
     position:fixed;
-    top:0;
-    left:0;
     width:100%;
     height:100%;
-    background:rgba(5,8,22,0.8);
+    background:rgba(5,8,22,0.85);
     z-index:-1;
 }
 
-/* ===============================
-   GATE SCREEN
-=================================*/
+/* FLOATING EMOJIS */
+.floating span{
+    position:absolute;
+    font-size:25px;
+    animation:float 8s linear infinite;
+}
+@keyframes float{
+    0%{transform:translateY(100vh);}
+    100%{transform:translateY(-10vh);}
+}
+
+/* GATE */
 #gateScreen{
     height:100vh;
     display:flex;
@@ -86,21 +74,18 @@ body::after{
     align-items:center;
 }
 
-.gate-emoji{
-    font-size:130px;
-    animation:gateBounce 2s infinite ease-in-out;
-    transition:1s;
+.gate{
+    font-size:120px;
+    animation:bounce 2s infinite;
 }
-
-@keyframes gateBounce{
+@keyframes bounce{
     0%{transform:scale(1);}
-    50%{transform:scale(1.15);}
+    50%{transform:scale(1.2);}
     100%{transform:scale(1);}
 }
 
-.enter-btn{
-    margin-top:20px;
-    padding:15px 40px;
+button{
+    padding:15px 35px;
     border:none;
     border-radius:40px;
     font-size:18px;
@@ -108,188 +93,165 @@ body::after{
     cursor:pointer;
     background:linear-gradient(45deg,#00f0ff,#ff00ff);
     color:white;
-    box-shadow:0 0 25px #00f0ff;
-    transition:0.3s;
+    box-shadow:0 0 30px #00f0ff;
+    margin-top:20px;
 }
 
-.enter-btn:hover{
-    transform:scale(1.1);
-}
-
-/* ===============================
-   MAIN CONTENT
-=================================*/
-#mainContent{
+/* MAIN CONTENT */
+#main{
     display:none;
-    padding:40px 20px;
+    padding:20px;
+}
+
+/* BIG RAMADAN TEXT */
+.ramadan{
+    font-size:55px;
+    font-weight:bold;
+    background:linear-gradient(45deg,#00f0ff,#ffcc00,#ff00ff,#00ffd5);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:glow 2s infinite alternate, shake 3s infinite;
+}
+
+@keyframes glow{
+    from{text-shadow:0 0 20px #00f0ff;}
+    to{text-shadow:0 0 40px #ff00ff;}
+}
+
+@keyframes shake{
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(1deg);}
+    50%{transform:rotate(-1deg);}
+    75%{transform:rotate(1deg);}
+    100%{transform:rotate(0deg);}
 }
 
 .card{
-    max-width:650px;
-    margin:auto;
-    padding:35px;
-    border-radius:30px;
+    margin-top:30px;
+    padding:25px;
+    border-radius:25px;
     background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(25px);
-    box-shadow:0 0 50px #00f0ff;
-    animation:cardGlow 3s infinite alternate;
-}
-
-@keyframes cardGlow{
-    from{box-shadow:0 0 30px #00f0ff;}
-    to{box-shadow:0 0 60px #ff00ff;}
-}
-
-h1{
-    margin-bottom:15px;
-}
-
-p{
-    line-height:1.6;
-    margin-top:10px;
+    backdrop-filter:blur(20px);
+    box-shadow:0 0 40px #00f0ff;
 }
 
 input{
-    margin-top:20px;
     padding:12px;
-    width:85%;
-    border:none;
+    width:80%;
     border-radius:25px;
-    font-size:16px;
-}
-
-.action-btn{
+    border:none;
     margin-top:15px;
-    padding:12px 30px;
-    border:none;
-    border-radius:25px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    background:linear-gradient(45deg,#7b00ff,#00f0ff);
-    color:white;
-    box-shadow:0 0 20px #7b00ff;
-    transition:0.3s;
 }
 
-.action-btn:hover{
-    transform:scale(1.05);
-}
-
-/* SHARE BUTTONS */
-.share-buttons{
-    margin-top:20px;
-}
-
-.share-buttons a{
+.share a{
     display:inline-block;
-    margin:6px;
+    margin:8px;
     padding:10px 15px;
     border-radius:20px;
     background:#00f0ff;
-    color:#000;
+    color:black;
     text-decoration:none;
     font-weight:bold;
-    font-size:14px;
 }
 
-/* FOOTER */
 footer{
-    margin-top:50px;
+    margin-top:40px;
     font-size:14px;
-    opacity:0.85;
+    opacity:0.8;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- ===============================
-     GATE SCREEN
-=================================-->
+<!-- Floating Emojis -->
+<div class="floating">
+<span style="left:10%">🌙</span>
+<span style="left:25%">🕌</span>
+<span style="left:40%">✨</span>
+<span style="left:55%">🤲</span>
+<span style="left:70%">⭐</span>
+<span style="left:85%">🏮</span>
+</div>
+
+<!-- GATE SCREEN -->
 <div id="gateScreen">
-    <div class="gate-emoji">🚪</div>
-    <h2>🌙 Open the Gate for Your Ramadan Surprise</h2>
-    <button class="enter-btn" onclick="openGate()">Enter</button>
+<div class="gate">🚪</div>
+<h2>Open the Gate for Your Ramadan Surprise 🌙</h2>
+<button onclick="enter()">Enter</button>
 </div>
 
-<!-- ===============================
-     MAIN CONTENT
-=================================-->
-<div id="mainContent">
-    <div class="card">
+<!-- MAIN -->
+<div id="main">
 
-        <h1 id="senderName">🌙 Ramadan Blessing</h1>
+<h1 id="senderName" class="ramadan">
+Ramadan Mubarak 🌙✨
+</h1>
 
-        <p>
-        🤲 May this Ramadan bring you peace, barakah and forgiveness.<br>
-        May Allah accept your fasting and prayers 🕌✨<br>
-        May your heart be filled with light and your duas be answered.
-        </p>
+<div class="card">
+<p>
+🤲 May Allah accept your fasting and prayers.<br>
+May your heart be filled with light and barakah.<br>
+Remember me in your duas 🕌✨
+</p>
 
-        <p>
-        🌙 Allahumma innaka ‘afuwwun tuhibbul ‘afwa fa’fu ‘anni.
-        </p>
+<p style="margin-top:15px;">
+Allahumma innaka ‘afuwwun tuhibbul ‘afwa fa’fu ‘anni.
+</p>
 
-        <h3 style="margin-top:25px;">🌟 Send Your Own Ramadan Blessing</h3>
+<h3 style="margin-top:20px;">Send Your Own Ramadan Blessing</h3>
 
-        <input type="text" id="nameInput" placeholder="Enter your name">
-        <br>
-        <button class="action-btn" onclick="generateLink()">Create My Ramadan Link</button>
+<input type="text" id="nameInput" placeholder="Enter your name">
+<br>
+<button onclick="generateLink()">Create My Link</button>
 
-        <div id="generatedLink" style="margin-top:15px;"></div>
+<div id="linkBox" style="margin-top:15px;"></div>
+<div class="share" id="shareBox"></div>
 
-        <div class="share-buttons" id="shareSection"></div>
+<a href="https://wa.me/233599931348" target="_blank">
+<button>WhatsApp Support</button>
+</a>
 
-        <h3 style="margin-top:25px;">📞 Need Support?</h3>
-        <a href="https://wa.me/233599931348" target="_blank">
-            <button class="action-btn">Chat on WhatsApp</button>
-        </a>
-
-    </div>
-
-    <footer>
-        Developed by Suleiman Alhassan 🌙
-    </footer>
 </div>
+
+<footer>
+Developed by Suleiman Alhassan 🌙
+</footer>
+
+</div>
+
+<!-- Ramadan Audio -->
+<audio id="ramadanAudio" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7e7f5c5e6b.mp3" type="audio/mp3">
+</audio>
 
 <script>
 
-/* OPEN GATE */
-function openGate(){
-    document.querySelector(".gate-emoji").style.transform="rotateY(90deg)";
-    setTimeout(()=>{
-        document.getElementById("gateScreen").style.display="none";
-        document.getElementById("mainContent").style.display="block";
-    },800);
+function enter(){
+document.getElementById("gateScreen").style.display="none";
+document.getElementById("main").style.display="block";
+document.getElementById("ramadanAudio").play();
 }
 
-/* READ NAME FROM URL */
-const params = new URLSearchParams(window.location.search);
-const sender = params.get("from");
+const params=new URLSearchParams(window.location.search);
+const sender=params.get("from");
 if(sender){
-    document.getElementById("senderName").innerText =
-    "🌙 " + sender + " Sent You a Ramadan Blessing!";
+document.getElementById("senderName").innerText=
+sender+" Wishes You Ramadan Mubarak 🌙✨";
 }
 
-/* GENERATE LINK */
 function generateLink(){
-    const name = document.getElementById("nameInput").value;
-    if(!name){
-        alert("Enter your name first");
-        return;
-    }
+const name=document.getElementById("nameInput").value;
+if(!name){alert("Enter your name");return;}
 
-    const link = window.location.origin + window.location.pathname + "?from=" + encodeURIComponent(name);
+const link=window.location.origin+window.location.pathname+"?from="+encodeURIComponent(name);
 
-    document.getElementById("generatedLink").innerHTML =
-        "<p>Share this link:</p><p style='word-wrap:break-word'>" + link + "</p>";
+document.getElementById("linkBox").innerHTML=link;
 
-    document.getElementById("shareSection").innerHTML = `
-        <a href="https://wa.me/?text=🌙 I sent you a Ramadan blessing 🤲 ${link}" target="_blank">WhatsApp</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=${link}" target="_blank">Facebook</a>
-    `;
+document.getElementById("shareBox").innerHTML=`
+<a href="https://wa.me/?text=🌙 Ramadan Mubarak 🤲 ${link}" target="_blank">WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=${link}" target="_blank">Facebook</a>
+`;
 }
 
 </script>
